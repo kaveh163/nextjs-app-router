@@ -10,7 +10,7 @@ async function Meals() {
 }
 export default function MealsPage() {
   // server components are rendered in the server so we can access the database directly without fetch, so reaching out the database is secure
- // suspense is used to show the fallback until the Meal component has finished loading
+ // suspense is used to show the fallback until the Meals component has finished loading
   return (
     <>
       <header className={classes.header}>
