@@ -1,7 +1,21 @@
 import { getMeal } from "@/lib/meals";
 import classes from "./page.module.css";
 import Image from "next/image";
-import {notFound} from "next/navigation"; 
+import {notFound} from "next/navigation";
+
+// reserved nextjs function below for dynamic metadata inside mealSlug page
+export async function generateMetadata({ params }) {
+  const meal = getMeal(params.mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
 export default function MealDetailsPage({params}) {
     const meal = getMeal(params.mealSlug);
     if(!meal) {
